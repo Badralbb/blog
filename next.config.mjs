@@ -1,10 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'media.dev.to',
+      },
+    ],
+  },
 };
-// export default nextConfig;
-// module.exports = {
-//   images: {
-//     domains: ["media.dev.to", "dev-to-uploads.s3.amazonaws.com"],
-//   },
-// };
+export default nextConfig;
