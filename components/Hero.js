@@ -3,9 +3,9 @@ import { useEffect, useState } from "react"
 const perPage = 5
 export const Hero = () => {
     const [articles, setArticles] = useState([])
-    const [page,setPage] = useState(1)
-    const [ended,setEnded] = useState(false)
-  
+    const [page, setPage] = useState(1)
+    const [ended, setEnded] = useState(false)
+
     const loadmore = () => {
         fetch(`https://dev.to/api/articles?username=paul_freeman&page=${page}&per_page=${perPage}`).then(Response => {
             return Response.json()
@@ -13,13 +13,13 @@ export const Hero = () => {
             const UpdatedArticles = articles.concat(data)
             setArticles(UpdatedArticles)
             setPage(page + 1)
-            if(data.length < perPage){
+            if (data.length < perPage) {
                 setEnded(true)
             }
         })
     }
     useEffect(() => {
-       loadmore()
+        loadmore()
     }, [])
     return (
         <div>
@@ -38,7 +38,7 @@ export const Hero = () => {
                                     {item.title}
                                 </div>
                                 <div>
-                                    {item.title}
+                                    {item.description}
                                 </div>
                             </div>
                             <div>
@@ -52,10 +52,10 @@ export const Hero = () => {
 
             </div>
             {
-                !ended&&
-            <div className="text-center py-10">
-                <button onClick={loadmore} className="btn btn-primary">load more</button>
-            </div>
+                !ended &&
+                <div className="text-center py-10">
+                    <button onClick={loadmore} className="btn btn-primary">load more</button>
+                </div>
             }
         </div>
 
