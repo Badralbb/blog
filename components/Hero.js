@@ -29,8 +29,8 @@ export const Hero = () => {
 
                         <div className="mb-4 max-w-[360px]">
 
-                            <Image width={100} height={100} src={item.cover_image || item.social_image} className="w-full rounded-lg" />
-
+                            <Image width={100} height={100} src={item.cover_image || item.social_image} className="w-full rounded-lg aspect-video object-cover bg-slate-600" />
+                            
                         </div>
                         <div className="pt-4">
                             <div className="mb-5">

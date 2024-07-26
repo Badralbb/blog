@@ -12,15 +12,15 @@ export const Header = () => {
 
     return (
         <div>
-{/* 
+
             {
-                article.map((item,index)=>(index === 0 &&
-                <div className="w-full h-[1000px] bg-no-repeat bg-cover" style={{ backgroundImage: `url(${item.social_image})` }}>
-                <div>{article[0].title}</div>
-            </div>
+                article.map((item, index) => (index === 0 &&
+                    <div className="bg-no-repeat bg-cover max-w-[1216px]" style={{ backgroundImage: `url(${item.social_image})` }}>
+                        <div>{article[0].title}</div>
+                    </div>
                 ))
 
-            } */}
+            }
 
 
 
