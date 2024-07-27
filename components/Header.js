@@ -22,23 +22,23 @@ export const Header = () => {
     setCount(count - 1);
   }
   return (
-    <div className="pb-24 hidden md:block">
+    <div className="pb-24 hidden md:block max-w-[1216px] mx-auto">
       <div
         className={`
-                    hidden bg-cover max-w-[1216px] transition-[10s] mx-auto h-[600px] md:block w-full rounded-xl relative`}
+                    hidden bg-cover max-w-[1216px] mx-auto aspect-[4/2] md:block w-full rounded-xl relative`}
       >
         {article.map(
           (item, index) =>
             index === 0 && (
               <div
                 key={index}
-                className={`${count !== 2 && "absolute -left-full"} `}
+                className={`transition-[10s] ${count !== 2 && "opacity-0"} `}
               >
                 <Image
                   width={600}
                   height={1200}
                   src={item.social_image}
-                  className="absolute inset-0 w-full rounded-xl "
+                  className="absolute inset-0 w-full rounded-xl"
                 />
                 <div className="absolute p-10 left-2 bottom-2 bg-slate-300 rounded-xl w-96 h-48">
                   <div>{item.tag_list[0]}</div>
@@ -53,7 +53,7 @@ export const Header = () => {
             index === 1 && (
               <div
                 key={index}
-                className={`${count != 1 && "absolute -right-full"}`}
+                className={`transition-[10s] ${count != 1 && "opacity-0"}`}
               >
                 <Image
                   width={600}
@@ -72,7 +72,10 @@ export const Header = () => {
         {article.map(
           (item, index) =>
             index === 2 && (
-              <div key={index} className={`${count !== 3 && "hidden"}`}>
+              <div
+                key={index}
+                className={`transition-[10s] ${count !== 3 && "opacity-0"}`}
+              >
                 <Image
                   width={600}
                   height={1200}
