@@ -33,7 +33,7 @@ export const Hero = () => {
   }, []);
   return (
     <div className="max-w-[1216px] mx-auto">
-      <div className="">
+      <div className="mb-8">
         <h3 className="mb-8">All blog Post</h3>
 
         <div className="flex gap-5">
