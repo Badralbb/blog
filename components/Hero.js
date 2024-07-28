@@ -9,8 +9,9 @@ export const Hero = () => {
   const [articles, setArticles] = useState([]);
   const [page, setPage] = useState(1);
   const [ended, setEnded] = useState(false);
-
+  const [loading, setLoading] = useState(false);
   const loadmore = () => {
+    setLoading(true);
     fetch(
       `https://dev.to/api/articles?username=paul_freeman&page=${page}&per_page=${perPage}`
     )
@@ -24,14 +25,30 @@ export const Hero = () => {
         if (data.length < perPage) {
           setEnded(true);
         }
+        setLoading(false);
       });
   };
   useEffect(() => {
     loadmore();
   }, []);
   return (
-    <div>
-      <div className="grid grid-cols-1 gap-2 w-full max-w-[1216px] mx-auto md:grid-cols-3">
+    <div className="max-w-[1216px] mx-auto">
+      <div className="">
+        <h3 className="mb-8">All blog Post</h3>
+
+        <div className="flex gap-5">
+          <div className="text-yellow-300">All</div>
+          {/* {articles.tag_list.map(
+            (item, index) =>
+              index < 3 && (
+                <div>
+                  <button>{item}</button>
+                </div>
+              )
+          )} */}
+        </div>
+      </div>
+      <div className="grid grid-cols-1 gap-2 w-full mx-auto md:grid-cols-3">
         {articles.map((item) => (
           <div
             key={item.id}
@@ -64,7 +81,12 @@ export const Hero = () => {
       </div>
       {!ended && (
         <div className="text-center py-10">
-          <button onClick={loadmore} className="btn btn-primary">
+          <button
+            disabled={loading}
+            onClick={loadmore}
+            className="btn btn-primary"
+          >
+            {loading && <span className="loading loading-spinner"></span>}
             load more
           </button>
         </div>
