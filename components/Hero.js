@@ -11,6 +11,7 @@ export const Hero = () => {
   const [ended, setEnded] = useState(false);
   const [loading, setLoading] = useState(false);
   const [filter, setFilter] = useState(false)
+
   const loadmore = () => {
     setLoading(true);
     fetch(
@@ -45,7 +46,7 @@ export const Hero = () => {
         <h3 className="mb-8">All blog Post</h3>
 
         <div className="flex gap-5">
-          <div className="text-yellow-300"><button>All</button></div>
+          <div className="hover:text-yellow-300"><button className="focus:text-yellow-300">All</button></div>
           {/* {articles.map(
             (item, index) =>
               index < 3 && (
@@ -58,11 +59,12 @@ export const Hero = () => {
             (item, index) =>
               index < 3 && (
                 <div key={index}>
-                  <button>{item}</button>
+                  <button className="focus:text-yellow-300 hover:text-yellow-300">{item}</button>
+
                 </div>
               )
           )}
-          <div className="text-yellow-300"><button>others</button></div>
+          <div className="hover:text-yellow-300 "><button className="focus:text-yellow-300">others</button></div>
         </div>
       </div>
       <div className="grid grid-cols-1 gap-2 w-full mx-auto md:grid-cols-3">
