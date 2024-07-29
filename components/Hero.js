@@ -10,6 +10,7 @@ export const Hero = () => {
   const [page, setPage] = useState(1);
   const [ended, setEnded] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [filter, setFilter] = useState(false)
   const loadmore = () => {
     setLoading(true);
     fetch(
@@ -31,21 +32,37 @@ export const Hero = () => {
   useEffect(() => {
     loadmore();
   }, []);
+
+  // function frontend() {
+  //   articles[0].tag_list.filter(item => (
+  //     item != articles[0].tag_list[0] && setFilter(false),
+  //     item == articles[0].tag_list[0] && setFilter(true)
+  //   ))
+  // }
   return (
     <div className="max-w-[1216px] mx-auto">
       <div className="mb-8">
         <h3 className="mb-8">All blog Post</h3>
 
         <div className="flex gap-5">
-          <div className="text-yellow-300">All</div>
-          {/* {articles.tag_list.map(
+          <div className="text-yellow-300"><button>All</button></div>
+          {/* {articles.map(
             (item, index) =>
               index < 3 && (
-                <div>
-                  <button>{item}</button>
+                <div key={index}>
+                  <button>{item.tag_list[0]}</button>
                 </div>
               )
           )} */}
+          {articles[0].tag_list.map(
+            (item, index) =>
+              index < 3 && (
+                <div key={index}>
+                  <button>{item}</button>
+                </div>
+              )
+          )}
+          <div className="text-yellow-300"><button>others</button></div>
         </div>
       </div>
       <div className="grid grid-cols-1 gap-2 w-full mx-auto md:grid-cols-3">

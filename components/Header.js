@@ -94,15 +94,15 @@ export const Header = () => {
         </div>
 
         <div className="flex gap-1 justify-end px-3 pt-2.5">
-          <button
+          <button disabled={count === 1}
             onClick={LeftArrow}
-            className={`${count === 1 && "hidden"} btn btn-active btn-primary`}
+            className={`btn btn-active btn-primary`}
           >
             <FaArrowLeft />
           </button>
-          <button
+          <button disabled={count === 3}
             onClick={RightArrow}
-            className={`${count === 3 && "hidden"} btn btn-active btn-primary`}
+            className={`btn btn-active btn-primary`}
           >
             <FaArrowRight />
           </button>
