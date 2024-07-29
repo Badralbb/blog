@@ -93,7 +93,7 @@ export const Hero = () => {
           <div className="hover:text-yellow-300"><button onClick={all} className={All && "text-yellow-300"}>All</button></div>
           <button onClick={Frontend} className={`hover:text-yellow-300 ${frontend && "text-yellow-300"}`}>{articles[0].tag_list[0]}</button>
           <button onClick={Webdev} className={`hover:text-yellow-300 ${webdev && "text-yellow-300"}`}>{articles[0].tag_list[1]}</button>
-          <button onClick={Begginers} className={`hover:text-yellow-300 ${begginers && "text-yellow-300"}`}>{articles[0].tag_list[2]}</button>
+          <button onClick={Begginers} className={`hover:text-yellow-300 ${others && "text-yellow-300"}`}>{articles[0].tag_list[2]}</button>
 
           <div className="hover:text-yellow-300 "><button onClick={Others} className="focus:text-yellow-300">others</button></div>
         </div>
