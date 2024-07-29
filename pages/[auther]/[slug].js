@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-
+import parse from 'html-react-parser';
 
 
 
@@ -24,8 +24,8 @@ export default function Page() {
     }
     return (
         <div>
-                <div>{article.title}</div>
-                <div>{article.body_html}</div>
+            <div>{article.title}</div>
+            <div>{parse(article.body_html)}</div>
         </div>
 
     )
