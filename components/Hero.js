@@ -105,7 +105,7 @@ export const Hero = () => {
             className="p-4 max-w-[396px] mx-auto w-full border-[1px] border-solid border-[#E8E8EA] rounded-xl shadow-lg"
           >
             <div className="mb-4 max-w-[360px]">
-              <Link target="blank" href={item.url}>
+              <Link href={item.path}>
                 <Image
                   width={100}
                   height={100}
@@ -137,7 +137,7 @@ export const Hero = () => {
             className="p-4 max-w-[396px] mx-auto w-full border-[1px] border-solid border-[#E8E8EA] rounded-xl shadow-lg"
           >
             <div className="mb-4 max-w-[360px]">
-              <Link target="blank" href={item.url}>
+              <Link href={item.path} target="blank">
                 <Image
                   width={100}
                   height={100}
