@@ -54,23 +54,21 @@ export const Hero = () => {
 
   }
 
-  const loadmore = () => {
+  async function loadmore() {
     setLoading(true);
-    fetch(
-      `https://dev.to/api/articles?username=paul_freeman&page=${page}&per_page=${perPage}`
-    )
-      .then((Response) => {
-        return Response.json();
-      })
-      .then((data) => {
-        const UpdatedArticles = articles.concat(data);
-        setArticles(UpdatedArticles);
-        setPage(page + 1);
-        if (data.length < perPage) {
-          setEnded(true);
-        }
-        setLoading(false);
-      });
+    const response = await fetch(`https://dev.to/api/articles?username=paul_freeman&page=${page}&per_page=${perPage}`);
+    const data = await response.json();
+    const UpdatedArticles = await data
+
+
+
+    setArticles(UpdatedArticles);
+    setPage(page + 1);
+    if (data.length < perPage) {
+      setEnded(true);
+    }
+    setLoading(false);
+
   };
   useEffect(() => {
     loadmore();

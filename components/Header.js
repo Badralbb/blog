@@ -26,7 +26,7 @@ export const Header = () => {
   return (
     <div>
       <div className="pb-24 hidden md:block max-w-[1216px] mx-auto">
-        <div className="carousel w-full">
+        <div className="carousel w-full aspect-[4/2]">
           {
             article.map((item, index) => (
               <div key={item.id} id={`slide${index}`} className="carousel-item relative w-full">

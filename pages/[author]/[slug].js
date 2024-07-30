@@ -14,21 +14,19 @@ export default function Page() {
             getArticle()
         }
     }, [router.isReady])
-    function getArticle() {
+    async function getArticle() {
+
         setLoading(true)
-        fetch(`https://dev.to/api/articles/${author}/${slug}`).then((response) => {
-            return response.json()
-        }).then(data => {
-            setArticle(data)
-            setLoading(false)
-        })
+            const response = await fetch(`https://dev.to/api/articles/${author}/${slug}`);
+            const detail = await response.json()
+            setArticle(detail)
     }
     if (!article) {
         return (<div>loading</div>)
     }
     return (
-        <div className="prose max-w-[1200px] mx-auto w-[70%]">
-            <div>{article.title}</div>
+        <div className="prose w-[80%] mx-auto">
+            <div>{ parse(article.title)}</div>
             <div>{parse(article.body_html)}</div>
         </div>
 
