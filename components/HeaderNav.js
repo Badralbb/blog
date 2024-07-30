@@ -5,6 +5,7 @@ import { IoIosMenu } from "react-icons/io";
 import { CiFacebook } from "react-icons/ci";
 import { FaInstagram } from "react-icons/fa";
 import { CiTwitter } from "react-icons/ci";
+import Link from "next/link";
 
 const Navs = [
   { title: "Home", link: "#home" },
@@ -31,7 +32,10 @@ export const HeaderNav = () => {
         <div className="pl-6 hidden md:block">
           <div className="flex-1 hidden gap-10 w-full md:flex">
             {Navs.map((item, index) => (
-              <div key={index}>{item.title}</div>
+              <Link href={"#footer"}>
+                <div key={index}>{item.title}</div>
+
+              </Link>
             ))}
           </div>
         </div>
@@ -56,7 +60,7 @@ export const HeaderNav = () => {
 };
 export function Footer() {
   return (
-    <div>
+    <div id="footer">
       <div className="w-[75%] mx-auto border-t-[1px]">
         <div className="text-center py-[30px] flex flex-col gap-2 md:hidden">
           {Navs.map((item) => (

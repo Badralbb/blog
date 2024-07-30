@@ -32,104 +32,40 @@ export const Header = () => {
               <div key={item.id} id={`slide${index}`} className="carousel-item relative w-full">
                 <Image width={100} height={100}
                   src={item.cover_iamge || item.social_image}
-                  className="w-full" />
+                  className="w-full rounded-xl" />
                 <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
                   <Link href={`#slide${index - 1}`} className="btn btn-circle">❮</Link>
                   <Link href={`#slide${index + 1}`} className="btn btn-circle">❯</Link>
+                </div>
+                <div className="absolute p-10 left-2 bottom-2 bg-slate-300 rounded-xl w-96 h-48">
+                  <div>{item.tag_list[0]}</div>
+                  <div>{item.description}</div>
+                  <div>{dayjs(item.published_at).format("YYYY/MM/d")}</div>
                 </div>
               </div>
             ))
           }
 
         </div>
-        {/* <div
-          className={`
-          hidden bg-cover max-w-[1216px] mx-auto aspect-[4/2] md:block w-full rounded-xl relative`}
-        >
-          {article.map(
-            (item, index) =>
-              index === 0 && (
-                <div
-                  key={index}
-                  className={`transition-[10s] ${count !== 2 && "opacity-0"} `}
-                >
-                  <Image
-                    width={600}
-                    height={1200}
-                    src={item.social_image}
-                    className="absolute inset-0 w-full rounded-xl"
-                  />
-                  <div className="absolute p-10 left-2 bottom-2 bg-slate-300 rounded-xl w-96 h-48">
-                    <div>{item.tag_list[0]}</div>
-                    <div>{item.description}</div>
-                    <div>{dayjs(item.published_at).format("YYYY/MM/d")}</div>
-                  </div>
-                </div>
-              )
-          )}
-          {article.map(
-            (item, index) =>
-              index === 1 && (
-                <div
-                  key={index}
-                  className={`transition-[10s] ${count != 1 && "opacity-0"}`}
-                >
-                  <Image
-                    width={600}
-                    height={1200}
-                    src={item.social_image}
-                    className="absolute inset-0 w-full rounded-xl "
-                  />
-                  <div className="absolute p-10 left-2 bottom-2 bg-slate-300 rounded-xl w-96 h-48">
-                    <div>{item.tag_list[0]}</div>
-                    <div>{item.description}</div>
-                    <div>{dayjs(item.published_at).format("YYYY/MM/d")}</div>
-                  </div>
-                </div>
-              )
-          )}
-          {article.map(
-            (item, index) =>
-              index === 2 && (
-                <div
-                  key={index}
-                  className={`transition-[10s] ${count !== 3 && "opacity-0"}`}
-                >
-                  <Image
-                    width={600}
-                    height={1200}
-                    src={item.social_image}
-                    className="absolute inset-0 w-full rounded-xl "
-                  />
-                  <div className="absolute p-10 left-2 bottom-2 bg-slate-300 rounded-xl w-96 h-48">
-                    <div>{item.tag_list[0]}</div>
-                    <div>{item.description}</div>
-                    <div>{dayjs(item.published_at).format("YYYY/MM/d")}</div>
-                  </div>
-                </div>
-              )
-          )}
-        </div> */}
 
-        {/* <div className="flex gap-1 justify-end px-3 pt-2.5">
-          <button disabled={count === 1}
-            onClick={LeftArrow}
-            className={`btn btn-active btn-primary`}
-          >
-            <FaArrowLeft />
-          </button>
-          <button disabled={count === 3}
-            onClick={RightArrow}
-            className={`btn btn-active btn-primary`}
-          >
-            <FaArrowRight />
-          </button>
-        </div> */}
+      </div>
+      <div className="carousel md:hidden carousel-center bg-neutral rounded-box items-center space-x-4 p-4 ">
+        {
+          article.map(item => (
+
+            <div className="carousel-item">
+              <Image width={500} height={500}
+                src={item.social_image}
+                className="rounded-box" />
+            </div>
+
+          ))}
       </div>
       <div className="max-w-[1216px] mx-auto">
         <h3 className="mb-8">Trending</h3>
 
-        <div className="flex gap-5 mb-28">
+        <div className="hidden md:flex gap-5 mb-28">
+
           {article.map(
             (item, index) =>
               index < 4 && (
@@ -154,6 +90,9 @@ export const Header = () => {
                 </div>
               )
           )}
+        </div>
+        <div className="block md:hidden ">
+
         </div>
       </div>
     </div>
