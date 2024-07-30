@@ -11,7 +11,6 @@ export default function Page() {
     const { author, slug } = router.query
     useEffect(() => {
         if (router.isReady) {
-
             getArticle()
         }
     }, [router.isReady])

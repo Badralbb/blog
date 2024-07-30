@@ -3,8 +3,10 @@ import { FaArrowLeft } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa";
 import dayjs from "dayjs";
 import Image from "next/image";
+import Link from "next/link";
 export const Header = () => {
   const [article, setArticle] = useState([]);
+
   useEffect(() => {
     fetch("https://dev.to/api/articles?username=ben")
       .then((response) => {
@@ -14,7 +16,7 @@ export const Header = () => {
         setArticle(data);
       });
   }, []);
-  const [count, setCount] = useState(2);
+  const [count, setCount] = useState(1);
   function RightArrow() {
     setCount(count + 1);
   }
@@ -24,7 +26,23 @@ export const Header = () => {
   return (
     <div>
       <div className="pb-24 hidden md:block max-w-[1216px] mx-auto">
-        <div
+        <div className="carousel w-full">
+          {
+            article.map((item, index) => (
+              <div key={item.id} id={`slide${index}`} className="carousel-item relative w-full">
+                <Image width={100} height={100}
+                  src={item.cover_iamge || item.social_image}
+                  className="w-full" />
+                <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+                  <Link href={`#slide${index - 1}`} className="btn btn-circle">❮</Link>
+                  <Link href={`#slide${index + 1}`} className="btn btn-circle">❯</Link>
+                </div>
+              </div>
+            ))
+          }
+
+        </div>
+        {/* <div
           className={`
           hidden bg-cover max-w-[1216px] mx-auto aspect-[4/2] md:block w-full rounded-xl relative`}
         >
@@ -91,9 +109,9 @@ export const Header = () => {
                 </div>
               )
           )}
-        </div>
+        </div> */}
 
-        <div className="flex gap-1 justify-end px-3 pt-2.5">
+        {/* <div className="flex gap-1 justify-end px-3 pt-2.5">
           <button disabled={count === 1}
             onClick={LeftArrow}
             className={`btn btn-active btn-primary`}
@@ -106,7 +124,7 @@ export const Header = () => {
           >
             <FaArrowRight />
           </button>
-        </div>
+        </div> */}
       </div>
       <div className="max-w-[1216px] mx-auto">
         <h3 className="mb-8">Trending</h3>
