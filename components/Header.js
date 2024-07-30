@@ -28,7 +28,7 @@ export const Header = () => {
       <div className="pb-24 hidden md:block max-w-[1216px] mx-auto">
         <div className="carousel w-full aspect-[4/2]">
           {
-            article.map((item, index) => (
+            article.map((item, index) => ( 
               <div key={item.id} id={`slide${index}`} className="carousel-item relative w-full">
                 <Image width={100} height={100}
                   src={item.cover_iamge || item.social_image}
@@ -56,7 +56,7 @@ export const Header = () => {
             <div className="carousel-item">
               <Image width={500} height={500}
                 src={item.social_image}
-                className="rounded-box" />
+                className="rounded-box w-full" />
             </div>
 
           ))}
