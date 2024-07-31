@@ -4,11 +4,11 @@ import { Hero } from "@/components/Hero";
 
 export default function Home() {
   return (
-    <main className="px-5">
+    <main className="px-5 md:px-0">
       <HeaderNav />
       <Header />
       <Hero />
-      <Footer />
+      <Footer/>
     </main>
   );
 }
