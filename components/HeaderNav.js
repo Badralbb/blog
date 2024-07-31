@@ -100,7 +100,6 @@ export function Footer() {
           </div>
         </div>
 
-
         <div className="flex justify-center md:justify-between mt-[25px] md:border-t-[1px] border-solid border-[#DCDDDF] md:py-5">
           <div className="flex gap-2.5 pb-[60px] justify-center">
             <Image src={"/images/Union.svg"} width={50} height={50} />
