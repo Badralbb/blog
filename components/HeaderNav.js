@@ -7,12 +7,14 @@ import { FaInstagram } from "react-icons/fa";
 import { CiTwitter } from "react-icons/ci";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+const items = [{ title: "Blog", link: "" }, { title: "Home", link: "" }, { title: "Contact", link: "" }]
 
 const Navs = [
   { title: "Home", link: "#home" },
   { title: "Blog", link: "#blog" },
   { title: "Contact", link: "#contact" },
 ];
+
 
 export const HeaderNav = () => {
 
@@ -43,12 +45,8 @@ export const HeaderNav = () => {
           </div>
         </div>
         <div className="bg-[#F4F4F5] hidden items-center p-2 gap-3 rounded-md max-w-[166px] md:flex">
-          <input
-            placeholder="search"
-            type="text"
-            className="bg-[#F4F4F5] w-full"
-          />
-          <CiSearch className="" />
+          <SearchComponent items={items} />
+
         </div>
         <div className="md:hidden">
           <IoIosMenu className="size-6" />
@@ -73,6 +71,7 @@ export function Footer() {
     art()
   }, [])
   if (!value) { return <div>faf</div> }
+
   return (
     <div id="footer" className="md:bg-[#E8E8EA]  py-16">
 
@@ -115,6 +114,46 @@ export function Footer() {
           </div>
         </div>
       </div>
+
     </div>
   );
+}
+
+const SearchComponent = ({ items }) => {
+  const [searchTerm, setSearchTerm] = useState("")
+  const [filteredItems, setFilteredItems] = useState(items)
+  const handleChange = (event) => {
+    const term = event.target.value
+    setSearchTerm(term)
+
+
+    console.log({items})
+    if (term !== "") {
+      const filtered = items.filter((item) =>
+        item.title.toLowerCase().includes(term.toLowerCase())
+      )
+      setFilteredItems(filtered)
+    } else {
+
+      setFilteredItems(items)
+    }
+  }
+  return (
+    <div>
+      <div className="flex items-center">
+        <input
+          placeholder="search"
+          type="text"
+          className="bg-[#F4F4F5] w-full" value={searchTerm} onChange={handleChange} />
+
+        <CiSearch />
+      </div>
+      <div className="flex flex-col gap-3">
+        {filteredItems.map((item, index) => (
+          <Link href={item.link} key={index}>{item.title}</Link>
+        ))}
+
+      </div>
+    </div>
+  )
 }

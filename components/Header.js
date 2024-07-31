@@ -16,19 +16,14 @@ export const Header = () => {
         setArticle(data);
       });
   }, []);
-  const [count, setCount] = useState(1);
-  function RightArrow() {
-    setCount(count + 1);
-  }
-  function LeftArrow() {
-    setCount(count - 1);
-  }
+
+  
   return (
     <div>
       <div className="pb-24 hidden md:block max-w-[1216px] mx-auto">
         <div className="carousel w-full aspect-[4/2]">
           {
-            article.map((item, index) => ( 
+            article.map((item, index) => (
               <div key={item.id} id={`slide${index}`} className="carousel-item relative w-full">
                 <Image width={100} height={100}
                   src={item.cover_iamge || item.social_image}
@@ -37,7 +32,7 @@ export const Header = () => {
                   <Link href={`#slide${index - 1}`} className="btn btn-circle">❮</Link>
                   <Link href={`#slide${index + 1}`} className="btn btn-circle">❯</Link>
                 </div>
-                <div className="absolute p-10 left-2 bottom-2 bg-slate-300 rounded-xl w-96 h-48">
+                <div className="absolute p-10 left-2 bottom-2 bg-slate-300 rounded-xl max-w-[30%] w-full">
                   <div>{item.tag_list[0]}</div>
                   <div>{item.description}</div>
                   <div>{dayjs(item.published_at).format("YYYY/MM/d")}</div>
@@ -92,7 +87,16 @@ export const Header = () => {
           )}
         </div>
         <div className="block md:hidden ">
+          <div className="carousel carousel-vertical rounded-box h-96">
+            {
+              article.map((item, index) => (index < 4 &&
 
+                <div className="carousel-item h-full max-w-[80%] w-full mx-auto">
+                  <Image className="w-full rounded-3xl" src={item.social_image} width={100} height={100} />
+                </div>
+              ))
+            }
+          </div>
         </div>
       </div>
     </div>
