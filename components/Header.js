@@ -17,7 +17,7 @@ export const Header = () => {
       });
   }, []);
 
-  
+
   return (
     <div>
       <div className="pb-24 hidden md:block max-w-[1216px] mx-auto">
@@ -25,7 +25,7 @@ export const Header = () => {
           {
             article.map((item, index) => (
               <div key={item.id} id={`slide${index}`} className="carousel-item relative w-full">
-                <Image width={100} height={100}
+                <Image width={2000} height={2000}
                   src={item.cover_iamge || item.social_image}
                   className="w-full rounded-xl" />
                 <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
@@ -47,13 +47,11 @@ export const Header = () => {
       <div className="carousel md:hidden carousel-center bg-neutral rounded-box items-center space-x-4 p-4 ">
         {
           article.map(item => (
-
             <div className="carousel-item">
               <Image width={500} height={500}
                 src={item.social_image}
                 className="rounded-box w-full" />
             </div>
-
           ))}
       </div>
       <div className="max-w-[1216px] mx-auto">

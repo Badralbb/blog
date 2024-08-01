@@ -14,19 +14,22 @@ export default function Page() {
             getArticle()
         }
     }, [router.isReady])
-    async function getArticle() {
 
+    async function getArticle() {
+        console.log(1)
         setLoading(true)
-            const response = await fetch(`https://dev.to/api/articles/${author}/${slug}`);
-            const detail = await response.json()
-            setArticle(detail)
+        const response = await fetch(`https://dev.to/api/articles/${author}/${slug}`);
+        const detail = await response.json()
+        setArticle(detail)
+        console.log(2)
     }
+    console.log(3)
     if (!article) {
         return (<div>loading</div>)
     }
     return (
         <div className="prose w-[80%] mx-auto">
-            <div>{ parse(article.title)}</div>
+            <div>{parse(article.title)}</div>
             <div>{parse(article.body_html)}</div>
         </div>
 
