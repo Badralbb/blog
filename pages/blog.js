@@ -6,7 +6,7 @@ import "@/components/mn";
 import Link from "next/link";
 dayjs.extend(relativeTime);
 const perPage = 5;
-export const blog = () => {
+export default function blog() {
     const [articles, setArticles] = useState([]);
     const [page, setPage] = useState(1);
     const [ended, setEnded] = useState(false);
@@ -15,14 +15,15 @@ export const blog = () => {
 
 
 
-    console.log(tag)
+
     async function loadmore() {
         setLoading(true);
-        const response = await fetch(`https://dev.to/api/articles?username=paul_freeman&page=${page}&perpage=${perPage}`);
+        const response = await fetch(`https://dev.to/api/articles?username=paul_freeman&page=${page}&per_page=${perPage}`);
         const data = await response.json();
-        const UpdatedArticles = await data
-
+        let UpdatedArticles = await data
+        UpdatedArticles = articles.concat(UpdatedArticles)
         setArticles(UpdatedArticles);
+
         setPage(page + 1);
         if (data.length < perPage) {
             setEnded(true);
@@ -32,7 +33,7 @@ export const blog = () => {
     };
     useEffect(() => {
         loadmore();
-    }, [tag]);
+    }, []);
     if (!articles.length) {
         return (
             <div>
