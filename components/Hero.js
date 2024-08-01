@@ -36,7 +36,7 @@ export const Hero = () => {
     setPage(page + 1);
     console.log(page)
     setLoading(true);
-    const response = await fetch(`https://dev.to/api/articles?username=paul_freeman&page=${page}&per_page=${perPage}`)
+    const response = await fetch(`https://dev.to/api/articles?username=paul_freeman&page=${page+1}&per_page=${perPage}`)
     const data = await response.json()
     if (data.length < perPage) {
       setEnded(true);
