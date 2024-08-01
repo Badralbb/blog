@@ -33,29 +33,30 @@ export const Hero = () => {
 
   console.log(tag)
   async function loadmore() {
+    setPage(page + 1);
+    console.log(page)
     setLoading(true);
     const response = await fetch(`https://dev.to/api/articles?username=paul_freeman&page=${page}&per_page=${perPage}`)
     const data = await response.json()
-    setPage(page + 1);
     if (data.length < perPage) {
       setEnded(true);
     }
     setLoading(false);
     setArticles(articles.concat(data))
+
   }
 
 
   async function FilterArticle() {
 
-    const response = await fetch(`https://dev.to/api/articles?username=paul_freeman&tag=${tag}&per_page=${perPage}`);
+    const response = await fetch(`https://dev.to/api/articles?username=paul_freeman&page=${page}&per_page=${perPage}&tag=${tag}`);
     const data = await response.json();
     let UpdatedArticles = await data
-
-
     setArticles(UpdatedArticles);
     setLoading(false);
 
   };
+
   useEffect(() => {
     FilterArticle();
   }, [tag]);

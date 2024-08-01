@@ -8,13 +8,11 @@ export const Header = () => {
   const [article, setArticle] = useState([]);
 
   useEffect(() => {
-    fetch("https://dev.to/api/articles?username=ben")
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        setArticle(data);
-      });
+    fetch("https://dev.to/api/articles?username=ben").then((response) => {
+      return response.json();
+    }).then((data) => {
+      setArticle(data);
+    });
   }, []);
 
 
