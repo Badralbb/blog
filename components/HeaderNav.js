@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 const items = [{ title: "Blog", link: "" }, { title: "Home", link: "" }, { title: "Contact", link: "" }]
 
 const Navs = [
-  { title: "Home", link: "#home" },
+  { title: "Home", link: "pages/index.js" },
   { title: "Blog", link: "#blog" },
   { title: "Contact", link: "#contact" },
 ];
@@ -37,7 +37,7 @@ export const HeaderNav = () => {
         <div className="pl-6 hidden md:block">
           <div className="flex-1 hidden gap-10 w-full md:flex">
             {Navs.map((item, index) => (
-              <Link href={"#footer"}>
+              <Link href={item.link}>
                 <div key={index}>{item.title}</div>
 
               </Link>
@@ -127,7 +127,7 @@ const SearchComponent = ({ items }) => {
     setSearchTerm(term)
 
 
-    console.log({items})
+    console.log({ items })
     if (term !== "") {
       const filtered = items.filter((item) =>
         item.title.toLowerCase().includes(term.toLowerCase())
