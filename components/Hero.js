@@ -120,7 +120,7 @@ export const Hero = () => {
                       {
                         tag !== "" ?
                           item.tag_list.map(item => (
-                            item == tag && item
+                            item == tag && item 
                           )) : item.tag_list[0]}
 
                     </div>

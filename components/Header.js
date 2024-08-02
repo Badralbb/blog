@@ -88,7 +88,7 @@ export const Header = () => {
             {
               article.map((item, index) => (index < 4 &&
 
-                <div className="carousel-item h-full max-w-[80%] w-full mx-auto">
+                <div key={item.id} className="carousel-item h-full max-w-[80%] w-full mx-auto">
                   <Image className="w-full rounded-3xl" src={item.social_image} width={100} height={100} />
                 </div>
               ))
