@@ -1,29 +1,36 @@
 import { MainLaytout } from "@/components/MainLayout"
 import Link from "next/link"
+import { useEffect, useState } from "react";
 
 export default function contact() {
+const [articles,setArticles] = useState([])
+async function Fetch(){
+    const response = await fetch(`https://dev.to/api/articles?username=paul_freeman`);
+    const data = await response.json()
+    setArticles(data)
+}
+useEffect(()=>{
+    Fetch()
+},[])
+if(!articles.length) return <div>loading</div>
     return (
         <MainLaytout>
 
-            <div className="max-w-[642px] w-full mx-auto flex gap-14 items-center pb-28">
-                <div className="text-7xl text-[#000000]">
-                    404
-                </div>
-                <div className="w-1 h-[156px] bg-[#E8E8EA]"></div>
-                <div className="flex flex-col gap-5">
+            <div className="max-w-[895px] w-full px-32 mx-auto">
+            <div className="flex flex-col gap-5">
+            <div className="text-[#000000] text-4xl">
+                {articles[0].title}
+            </div>
+            <div className="text-[#000000] text-4xl">
+                {articles[0].description}
+            </div>
+            <div className="text-[#000000] text-4xl">
+                {articles[0].day}
+            </div>
+            </div>
+            <div>
 
-                    <h2 className="text-[#000000] text-2xl">Page Not Found</h2>
-                    <p className="text-[#696A75] text-lg">
-                        We're sorry, This page is unknown or does not exist the page you are looking for.
-                    </p>
-                    <div className="flex">
-
-                        <Link href={"/"} className="btn btn-outline btn-primary">
-                            Back to Home
-                        </Link>
-                    </div>
-                </div>
-
+            </div>
 
             </div>
         </MainLaytout>
