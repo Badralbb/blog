@@ -30,8 +30,10 @@ export const Hero = () => {
   },
     , { name: "programming", value: "programming" }
   ]
+  const viewAll = ["viewall"]
 
-  console.log(tag)
+
+
   async function loadmore() {
     nextPage = page + 1
     setPage(page + 1);
@@ -80,20 +82,22 @@ export const Hero = () => {
 
       <div>
 
+        <div className="flex justify-between">
 
-        <div className="flex gap-5 mb-8">
-          {
-            tags.map(item => (
+          <div className="flex gap-5 mb-8">
+            {
+              tags.map(item => (
 
-              <div key={item.value} onClick={() => setTag(item.value)} className={`hover:text-yellow-400 cursor-pointer font-bold ${tag === item.value ? "text-yellow-300" : ""}`}>
-                {item.name}
-              </div>
-            ))
-          }
-
-
+                <div key={item.value} onClick={() => setTag(item.value)} className={`hover:text-yellow-400 cursor-pointer font-bold ${tag === item.value ? "text-yellow-300" : ""}`}>
+                  {item.name}
+                </div>
+              ))
+            }
+          </div>
+          <div className={`hover:text-yellow-400 cursor-pointer font-bold`} >
+            {viewAll[0]}
+          </div>
         </div>
-
         <div className="grid grid-cols-1 gap-2 w-full mx-auto md:grid-cols-3">
 
           {

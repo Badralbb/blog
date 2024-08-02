@@ -58,7 +58,7 @@ export const Header = () => {
       </div>
       <div className="max-w-[1216px] mx-auto">
         <h3 className="mb-8">Trending</h3>
-        
+
         <div className="hidden md:flex gap-5 mb-28">
 
           {article.map(
@@ -75,11 +75,8 @@ export const Header = () => {
                     width={100}
                     height={100}
                   />
-                  <div className="bg-[#141624] w-full absolute inset-0 opacity-50">
-
+                  <div className="bg-[#141624] w-full absolute inset-0 opacity-50 rounded-xl">
                   </div>
-
-
                   <div className="p-7 absolute w-full bottom-0 left-0 ">
                     <div className="badge badge-primary mb-4">
                       {item.tag_list[0]}
