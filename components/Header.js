@@ -30,8 +30,9 @@ export const Header = () => {
                   <Link href={`#slide${index - 1}`} className="btn btn-circle">❮</Link>
                   <Link href={`#slide${index + 1}`} className="btn btn-circle">❯</Link>
                 </div>
-                <div className="absolute p-10 left-2 bottom-2 bg-slate-300 rounded-xl max-w-[30%] w-full">
-                  <div>{item.tag_list[0]}</div>
+                <div className="absolute p-10 left-2 bottom-2 bg-[#E8E8EA] rounded-xl max-w-[30%] w-full">
+
+                  <div className="badge badge-primary">{item.tag_list[0]}</div>
                   <div>{item.description}</div>
                   <div>{dayjs(item.published_at).format("YYYY/MM/d")}</div>
                 </div>

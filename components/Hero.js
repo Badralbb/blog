@@ -43,7 +43,7 @@ export const Hero = () => {
     }
     setLoading(false);
     setArticles(articles.concat(data))
-    
+
   }
 
 
@@ -78,7 +78,7 @@ export const Hero = () => {
       <div>
 
 
-        <div className="flex gap-5">
+        <div className="flex gap-5 mb-8">
           {
             tags.map(item => (
 
