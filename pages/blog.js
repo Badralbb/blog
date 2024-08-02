@@ -4,6 +4,7 @@ import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import "@/components/mn";
 import Link from "next/link";
+import { HeaderNav } from "@/components/HeaderNav";
 dayjs.extend(relativeTime);
 const perPage = 5;
 export default function blog() {
@@ -45,9 +46,8 @@ export default function blog() {
 
     return (
         <div className="max-w-[1216px] mx-auto">
-            <div className="mb-8">
-                <h3 className="mb-8">All blog Post</h3>
-            </div>
+
+
 
             <div>
 

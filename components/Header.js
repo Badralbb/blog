@@ -19,6 +19,9 @@ export const Header = () => {
   return (
     <div>
       <div className="pb-24 hidden md:block max-w-[1216px] mx-auto">
+        <div className="md:max-w-[1216px] md:mx-auto hidden md:block mb-8">
+          All Blog Post
+        </div>
         <div className="carousel w-full aspect-[4/2]">
           {
             article.map((item, index) => (

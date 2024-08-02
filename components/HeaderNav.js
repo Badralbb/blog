@@ -7,12 +7,12 @@ import { FaInstagram } from "react-icons/fa";
 import { CiTwitter } from "react-icons/ci";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-const items = [{ title: "Blog", link: "" }, { title: "Home", link: "" }, { title: "Contact", link: "" }]
+const items = [{ title: "Blog", link: "blog" }, { title: "Home", link: "/" }, { title: "Contact", link: "contact" }]
 
 const Navs = [
-  { title: "Home", link: "pages/index.js" },
-  { title: "Blog", link: "#blog" },
-  { title: "Contact", link: "#contact" },
+  { title: "Home", link: "/" },
+  { title: "Blog", link: "blog" },
+  { title: "Contact", link: "contact" },
 ];
 
 
@@ -21,7 +21,7 @@ export const HeaderNav = () => {
   return (
     <div className="mb-12 text-[#1A1A1A] md:w-full w-[80%] mx-auto">
       <div className="max-w-[1130px] mx-auto py-8 w-full flex justify-between">
-        <div className="flex gap-2 items-center">
+        <div className="flex gap-2 items-start">
           <Image
             src={"/images/Union.svg"}
             width={100}
@@ -29,8 +29,8 @@ export const HeaderNav = () => {
             className="w-9 h-9"
           />
           <div className="flex items-center gap-1">
-            <img src="images/Meta.svg" />
-            <img src="images/Blog.svg" className="pt-1" />
+            <Image width={100} height={100} src="/images/Meta.svg" />
+            <Image width={100} height={100} src="/images/Blog.svg" className="pt-1" />
           </div>
         </div>
 
@@ -52,9 +52,7 @@ export const HeaderNav = () => {
           <IoIosMenu className="size-6" />
         </div>
       </div>
-      <div className="md:max-w-[1216px] md:mx-auto hidden md:block">
-        All Blog Post
-      </div>
+
       <div className="md:hidden pl-8">Trending</div>
     </div>
   );

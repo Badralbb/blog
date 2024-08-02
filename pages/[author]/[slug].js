@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 import parse from 'html-react-parser';
 import { useRouter } from 'next/router'
+import { HeaderNav } from "@/components/HeaderNav";
 
 
 export default function Page() {
@@ -28,9 +29,13 @@ export default function Page() {
         return (<div>loading</div>)
     }
     return (
-        <div className="prose w-[80%] mx-auto">
-            <div>{parse(article.title)}</div>
-            <div>{parse(article.body_html)}</div>
+        <div>
+
+
+            <div className="prose w-[80%] mx-auto">
+                <div>{parse(article.title)}</div>
+                <div>{parse(article.body_html)}</div>
+            </div>
         </div>
 
     )
