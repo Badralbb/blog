@@ -71,7 +71,7 @@ export function Footer() {
   if (!value) { return <div>faf</div> }
 
   return (
-    <div id="footer" className="md:bg-[#E8E8EA]  py-16">
+    <div className="md:bg-[#E8E8EA]  py-16">
 
       <div className="w-[75%] md:max-w-[1216px] md:w-full mx-auto border-t-[1px] md:border-none">
         <div className="md:flex gap-8">
@@ -80,8 +80,7 @@ export function Footer() {
             {
               <div>
                 <div>{value[0].description}</div>
-                <div></div>
-                <div></div>
+
               </div>
             }
           </div>
@@ -112,9 +111,8 @@ export function Footer() {
           </div>
         </div>
       </div>
-
     </div>
-  );
+  )
 }
 
 const SearchComponent = ({ items }) => {

@@ -5,6 +5,7 @@ import relativeTime from "dayjs/plugin/relativeTime";
 import "@/components/mn";
 import Link from "next/link";
 import { HeaderNav } from "@/components/HeaderNav";
+import { MainLaytout } from "@/components/MainLayout";
 dayjs.extend(relativeTime);
 const perPage = 5;
 export default function blog() {
@@ -45,67 +46,70 @@ export default function blog() {
     }
 
     return (
-        <div className="max-w-[1216px] mx-auto">
+        <MainLaytout>
+
+            <div className="max-w-[1216px] mx-auto">
 
 
 
-            <div>
+                <div>
 
 
-                <div className="grid grid-cols-1 gap-2 w-full mx-auto md:grid-cols-3">
+                    <div className="grid grid-cols-1 gap-2 w-full mx-auto md:grid-cols-3">
 
-                    {
-                        articles.map(item =>
-                            <div
-                                key={item.id}
-                                className="p-4 max-w-[396px] mx-auto w-full border-[1px] border-solid border-[#E8E8EA] rounded-xl shadow-lg"
-                            >
-                                <div className="mb-4 max-w-[360px]">
-                                    <Link href={item.path}>
-                                        <Image
-                                            width={1000}
-                                            height={1000}
-                                            src={item.cover_image || item.social_image}
-                                            className="w-full rounded-lg aspect-video object-cover bg-slate-600"
-                                        />
-                                    </Link>
-                                </div>
-
-                                <div className="pt-4">
-                                    <div className="mb-5">
-                                        <div className="mb-4">
-                                            {dayjs(item.published_at).locale("mn").fromNow()}
-                                        </div>
-                                        <div className="badge badge-primary">
-
-                                            {item.tag_list[0]}
-
-                                        </div>
-                                        <div>{item.description}</div>
+                        {
+                            articles.map(item =>
+                                <div
+                                    key={item.id}
+                                    className="p-4 max-w-[396px] mx-auto w-full border-[1px] border-solid border-[#E8E8EA] rounded-xl shadow-lg"
+                                >
+                                    <div className="mb-4 max-w-[360px]">
+                                        <Link href={item.path}>
+                                            <Image
+                                                width={1000}
+                                                height={1000}
+                                                src={item.cover_image || item.social_image}
+                                                className="w-full rounded-lg aspect-video object-cover bg-slate-600"
+                                            />
+                                        </Link>
                                     </div>
-                                    <div className="flex gap-2 items-center">
-                                        <Image src={item.user.profile_image} width={50} height={50} />
-                                        <div>{item.user.username}</div>
+
+                                    <div className="pt-4">
+                                        <div className="mb-5">
+                                            <div className="mb-4">
+                                                {dayjs(item.published_at).locale("mn").fromNow()}
+                                            </div>
+                                            <div className="badge badge-primary">
+
+                                                {item.tag_list[0]}
+
+                                            </div>
+                                            <div>{item.description}</div>
+                                        </div>
+                                        <div className="flex gap-2 items-center">
+                                            <Image src={item.user.profile_image} width={50} height={50} />
+                                            <div>{item.user.username}</div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        )}
+                            )}
 
 
+                    </div>
                 </div>
+                {!ended && (
+                    <div className="text-center py-10">
+                        <button
+                            disabled={loading}
+                            onClick={loadmore}
+                            className="btn btn-primary"
+                        >
+                            {loading && <span className="loading loading-spinner"></span>}
+                            load more
+                        </button>
+                    </div>
+                )}
             </div>
-            {!ended && (
-                <div className="text-center py-10">
-                    <button
-                        disabled={loading}
-                        onClick={loadmore}
-                        className="btn btn-primary"
-                    >
-                        {loading && <span className="loading loading-spinner"></span>}
-                        load more
-                    </button>
-                </div>
-            )}
-        </div>
-    );
+        </MainLaytout>
+    )
 };

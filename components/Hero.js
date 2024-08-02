@@ -8,11 +8,11 @@ dayjs.extend(relativeTime);
 const perPage = 5;
 export const Hero = () => {
   const [articles, setArticles] = useState([]);
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(0);
   const [ended, setEnded] = useState(false);
   const [loading, setLoading] = useState(false);
 
-
+  let nextPage = 1;
   const [tag, setTag] = useState("");
   const tags = [{ name: "all", value: "" }
     , { name: "Front-end", value: "frontend" },
@@ -33,10 +33,11 @@ export const Hero = () => {
 
   console.log(tag)
   async function loadmore() {
+    nextPage = page + 1
     setPage(page + 1);
     console.log(page)
     setLoading(true);
-    const response = await fetch(`https://dev.to/api/articles?username=paul_freeman&page=${page + 1}&per_page=${perPage}`)
+    const response = await fetch(`https://dev.to/api/articles?username=paul_freeman&page=${nextPage}&per_page=${perPage}`)
     const data = await response.json()
     if (data.length < perPage) {
       setEnded(true);
@@ -48,8 +49,9 @@ export const Hero = () => {
 
 
   async function FilterArticle() {
-
-    const response = await fetch(`https://dev.to/api/articles?username=paul_freeman&page=${page}&per_page=${perPage}&tag=${tag}`);
+    setPage(nextPage)
+    nextPage = 1
+    const response = await fetch(`https://dev.to/api/articles?username=paul_freeman&page=${nextPage}&per_page=${perPage}&tag=${tag}`);
     const data = await response.json();
     let UpdatedArticles = await data
     setArticles(UpdatedArticles);
@@ -58,6 +60,7 @@ export const Hero = () => {
   };
 
   useEffect(() => {
+
     FilterArticle();
   }, [tag]);
   if (!articles.length) {
@@ -120,7 +123,7 @@ export const Hero = () => {
                       {
                         tag !== "" ?
                           item.tag_list.map(item => (
-                            item == tag && item 
+                            item == tag && item
                           )) : item.tag_list[0]}
 
                     </div>
