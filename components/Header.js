@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { FaArrowLeft } from "react-icons/fa";
-import { FaArrowRight } from "react-icons/fa";
+
 import dayjs from "dayjs";
 import Image from "next/image";
 import Link from "next/link";
@@ -37,10 +36,24 @@ export const Header = () => {
                 className="w-full rounded-xl"
               />
               <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-                <Link href={`#slide${index - 1}`} className="btn btn-circle">
+                <Link
+                  href={`${
+                    index == 0
+                      ? `#slide${article.length - 1}`
+                      : `#slide${index - 1}`
+                  }`}
+                  className="btn btn-circle"
+                >
                   ❮
                 </Link>
-                <Link href={`#slide${index + 1}`} className="btn btn-circle">
+                <Link
+                  href={`${
+                    index === article.length - 1
+                      ? `#slide0`
+                      : `#slide${index + 1}`
+                  }`}
+                  className="btn btn-circle"
+                >
                   ❯
                 </Link>
               </div>
