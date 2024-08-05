@@ -25,8 +25,8 @@ export default function contact() {
                         {articles[0].description}
                     </div>
                     <div className="text-[#696A75] text-4xl flex gap-10">
-                        <div className="border-[1px] rounded-xl">
-                            <div className="mb-2.5 p-3 text-[#000000]">Address</div>
+                        <div className="border-[1px] rounded-xl p-3">
+                            <div className="mb-2.5 text-[#000000]">Address</div>
                             <div>{articles[1].description}</div>
                         </div>
                         <div className="border-[1px] p-3 rounded-xl">
