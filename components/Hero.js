@@ -4,7 +4,6 @@ import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import "@/components/mn";
 import Link from "next/link";
-import { name } from "@/components/mn";
 dayjs.extend(relativeTime);
 const perPage = 5;
 export const Hero = () => {
