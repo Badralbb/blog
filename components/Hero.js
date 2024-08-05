@@ -97,9 +97,8 @@ export const Hero = () => {
               <div
                 key={item.value}
                 onClick={() => setTag(item.value)}
-                className={`hover:text-yellow-400 cursor-pointer font-bold ${
-                  tag === item.value ? "text-yellow-300" : ""
-                }`}
+                className={`hover:text-yellow-400 cursor-pointer font-bold ${tag === item.value ? "text-yellow-300" : ""
+                  }`}
               >
                 {item.name}
               </div>
@@ -112,7 +111,7 @@ export const Hero = () => {
             {viewAll.name}
           </div>
         </div>
-        <div className="grid grid-cols-1 gap-2 w-full mx-auto md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-2 w-full mx-auto md:grid-cols-3 mb-10">
           {articles.map((item) => (
             <div
               key={item.id}
@@ -151,7 +150,7 @@ export const Hero = () => {
         </div>
       </div>
       {!ended && (
-        <div className="text-center py-10">
+        <div className="text-center pb-10">
           <button
             disabled={loading}
             onClick={loadmore}
