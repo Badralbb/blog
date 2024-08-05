@@ -52,8 +52,11 @@ export default function contact() {
 
                             <textarea
                                 placeholder="Write a message"
-                                className="textarea textarea-bordered textarea-lg w-full"></textarea>
+                                className="textarea textarea-bordered textarea-lg w-full">
+                            </textarea>
+
                         </div>
+                        <button className="btn btn-active btn-primary">Send message</button>
                     </div>
                 </div>
 
