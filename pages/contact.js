@@ -42,7 +42,7 @@ export default function contact() {
                         <div className="text-[#000000] mb-6">
                             Leave a Message
                         </div>
-                        <div className="flex flex-col gap-5">
+                        <div className="flex flex-col gap-5 mb-7">
                             <div className="flex gap-7">
                                 <input placeholder="Your Name" className="py-3 px-5 w-[50%] rounded-lg" />
                                 <input placeholder="Your Email" className="py-3 px-5 w-[50%] rounded-lg" />
