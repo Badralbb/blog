@@ -4,7 +4,7 @@ import parse from 'html-react-parser';
 
 
 
-async function Page({ params }) {
+async function page({ params }) {
 
     const response = await fetch(`https://dev.to/api/articles/${params.author}/${params.slug}`);
     const detail = await response.json()
