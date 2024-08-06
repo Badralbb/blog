@@ -1,4 +1,7 @@
 import { useEffect, useState } from "react";
+import AwesomeSlider from 'react-awesome-slider';
+import AwesomeSliderStyles from 'react-awesome-slider/src/styled/scale-out-animation.scss';
+
 
 import dayjs from "dayjs";
 import Image from "next/image";
@@ -15,7 +18,14 @@ export const Header = () => {
         setArticle(data);
       });
   }, []);
-
+  const Slider = (
+    <AwesomeSlider cssModule={AwesomeSliderStyles}>
+      <div data-src="/path/to/image-0.jpg" />
+      <div data-src="/path/to/image-1.jpg" />
+      <div data-src="/path/to/image-2.jpg" />
+      <div data-src="/path/to/image-3.jpg" />
+    </AwesomeSlider>
+  );
   return (
     <div>
       <div className="pb-24 hidden md:block max-w-[1216px] mx-auto">
@@ -129,6 +139,9 @@ export const Header = () => {
           </div>
         </div>
       </div>
+      {
+        Slider
+      }
     </div>
   );
 };
