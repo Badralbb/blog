@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import AwesomeSlider from 'react-awesome-slider';
-import AwesomeSliderStyles from 'react-awesome-slider/src/styled/scale-out-animation.scss';
 
 
 import dayjs from "dayjs";
@@ -18,14 +16,7 @@ export const Header = () => {
         setArticle(data);
       });
   }, []);
-  const Slider = (
-    <AwesomeSlider cssModule={AwesomeSliderStyles}>
-      <div data-src="/path/to/image-0.jpg" />
-      <div data-src="/path/to/image-1.jpg" />
-      <div data-src="/path/to/image-2.jpg" />
-      <div data-src="/path/to/image-3.jpg" />
-    </AwesomeSlider>
-  );
+
   return (
     <div>
       <div className="pb-24 hidden md:block max-w-[1216px] mx-auto">
@@ -47,21 +38,19 @@ export const Header = () => {
               />
               <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
                 <Link
-                  href={`${
-                    index == 0
-                      ? `#slide${article.length - 1}`
-                      : `#slide${index - 1}`
-                  }`}
+                  href={`${index == 0
+                    ? `#slide${article.length - 1}`
+                    : `#slide${index - 1}`
+                    }`}
                   className="btn btn-circle"
                 >
                   ❮
                 </Link>
                 <Link
-                  href={`${
-                    index === article.length - 1
-                      ? `#slide0`
-                      : `#slide${index + 1}`
-                  }`}
+                  href={`${index === article.length - 1
+                    ? `#slide0`
+                    : `#slide${index + 1}`
+                    }`}
                   className="btn btn-circle"
                 >
                   ❯
@@ -139,9 +128,7 @@ export const Header = () => {
           </div>
         </div>
       </div>
-      {
-        Slider
-      }
+
     </div>
   );
 };
