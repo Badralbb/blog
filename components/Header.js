@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 
 
-import dayjs from "dayjs";
 import Image from "next/image";
-import Link from "next/link";
+import MySwiper from "./Swiper";
+
 export const Header = () => {
   const [article, setArticle] = useState([]);
 
@@ -23,7 +23,7 @@ export const Header = () => {
         <div className="md:max-w-[1216px] md:mx-auto hidden md:block mb-8">
           All Blog Post
         </div>
-        <div className="carousel w-full aspect-[4/2]">
+        {/* <div className="carousel w-full aspect-[4/2]">
           {article.map((item, index) => (
             <div
               key={item.id}
@@ -63,7 +63,8 @@ export const Header = () => {
               </div>
             </div>
           ))}
-        </div>
+        </div> */}
+        <MySwiper article={article} />
       </div>
       <div className="carousel md:hidden carousel-center bg-neutral rounded-box items-center space-x-4 p-4 ">
         {article.map((item) => (

@@ -7,6 +7,7 @@ import { FaInstagram } from "react-icons/fa";
 import { CiTwitter } from "react-icons/ci";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+
 const items = [{ title: "Blog", link: "blog" }, { title: "Home", link: "/" }, { title: "Contact", link: "contact" }]
 
 const Navs = [
@@ -137,10 +138,14 @@ const SearchComponent = ({ items }) => {
   return (
     <div>
       <div className="flex items-center">
-        <input
-          placeholder="search"
-          type="text"
-          className="bg-[#F4F4F5] w-full" value={searchTerm} onChange={handleChange} />
+
+        <form action="/search">
+          <input
+            placeholder="search"
+            type="text" name="q"
+            className="bg-[#F4F4F5] w-full" value={searchTerm} onChange={handleChange} />
+
+        </form>
 
         <CiSearch />
       </div>
