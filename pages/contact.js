@@ -38,7 +38,6 @@ export default function contact() {
 
                 <div className="w-full bg-[#F6F6F7] p-10">
                     <div className="max-w-[478px]">
-
                         <div className="text-[#000000] mb-6">
                             Leave a Message
                         </div>
