@@ -1,7 +1,9 @@
 import { Header } from "@/components/Header";
-import { Footer, HeaderNav } from "@/components/HeaderNav";
+
 import { Hero } from "@/components/Hero";
 import { MainLaytout } from "@/components/MainLayout";
+import AutoPlay from "@/components/Slider";
+
 import Head from "next/head";
 
 // import AwesomeSlider from "react-awesome-slider";
@@ -22,6 +24,10 @@ export default function Home() {
         <Header />
         <Hero />
       </MainLaytout>
+
+
+     <AutoPlay/>
+    
     </main>
   );
 }

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import MySwiper from "./Swiper";
 
+
 export const Header = () => {
   const [article, setArticle] = useState([]);
 
@@ -129,7 +130,7 @@ export const Header = () => {
           </div>
         </div>
       </div>
-
+            
     </div>
   );
 };
