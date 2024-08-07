@@ -5,7 +5,7 @@ import 'swiper/css/pagination';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, EffectCoverflow, EffectFade, Navigation, Pagination } from 'swiper/modules';
 import Image from 'next/image';
-import AutoPlay from './Slider';
+
 // Swiper-ийн нэмэлт модулуудыг суулгах
 
 function MySwiper({ article }) {
@@ -13,7 +13,10 @@ function MySwiper({ article }) {
         <Swiper
             spaceBetween={50}
             slidesPerView={1}
-            navigation
+            navigation={{
+                nextEl: ".custom-next",
+                prevEl: ".custom-prev"
+            }}
             effect='coverflow'
             flipEffect={{
                 slideShadows:true,
@@ -29,8 +32,8 @@ function MySwiper({ article }) {
             autoplay={{delay: 3000, disableOnInteraction:false}}
             pagination={{ clickable: true }}
             scrollbar={{ draggable: true }}
-            modules={[Navigation,
-                Pagination, EffectFade,EffectCoverflow,Autoplay]}
+            modules={[
+                Navigation,Pagination, EffectFade,EffectCoverflow,Autoplay]}
         >
 
             {
@@ -41,6 +44,8 @@ function MySwiper({ article }) {
                     </SwiperSlide>
                 ))
             }
+            <div className='custom-prev'></div>
+            <div className='custom-next'></div>
 
         </Swiper>
     );
