@@ -2,12 +2,11 @@ import { Header } from "@/components/Header";
 
 import { Hero } from "@/components/Hero";
 import { MainLaytout } from "@/components/MainLayout";
-import AutoPlay from "@/components/Slider";
+
 
 import Head from "next/head";
 
-// import AwesomeSlider from "react-awesome-slider";
-// import AwsSliderStyles from "react-awesome-slider/src/styles.scss";
+
 export default function Home() {
   return (
     <main>
@@ -26,8 +25,7 @@ export default function Home() {
       </MainLaytout>
 
 
-     <AutoPlay/>
-    
+  
     </main>
   );
 }
