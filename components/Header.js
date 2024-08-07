@@ -88,7 +88,7 @@ export const Header = () => {
               index < 4 && (
                 <div
                   key={item.id}
-                  className="max-w-[293px] w-full relative overflow-hidden"
+                  className="max-w-[293px] w-full relative overflow-hidden hover:cursor-pointer"
                 >
                   <Image
                     className="w-full rounded-xl"
@@ -96,7 +96,7 @@ export const Header = () => {
                     width={100}
                     height={100}
                   />
-                  <div className="bg-[#141624] w-full absolute inset-0 opacity-50 hover:opacity-0 hover:cursor-pointer rounded-xl"></div>
+                  <div className="bg-[#141624] w-full absolute inset-0 opacity-50 hover:opacity-0 rounded-xl"></div>
                   <div className="p-7 absolute w-full bottom-0 left-0 ">
                     <div className="badge badge-primary mb-4">
                       {item.tag_list[0]}
