@@ -110,7 +110,7 @@ export const Header = () => {
           )}
         </div>
         <div className="block md:hidden ">
-          <div className="carousel carousel-vertical rounded-box h-96">
+          <div className="carousel carousel-center rounded-box">
             {article.map(
               (item, index) =>
                 index < 4 && (
