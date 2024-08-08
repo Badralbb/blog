@@ -21,9 +21,16 @@
  left: 10px;
  background-image: url('/images/hell.png'); /* өөрийн дүрсийн замыг оруулна уу */
  background-size: cover;
+ animation: infinite 5s 2s animation alternate;
 }
 .custom-next {
  right: 10px;
  background-image: url('/images/hell.png'); /* өөрийн дүрсийн замыг оруулна уу */
  background-size: cover;
+ animation: animation 5s 2s infinite alternate
 }
+@keyframes animation{
+from {rotate: 0;}
+to {rotate: 360deg;}
+} 
+
