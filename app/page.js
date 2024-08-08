@@ -11,7 +11,7 @@ import Head from "next/head";
 
 export default function Home() {
   return (
-    <main>
+    <main className="px-5 md:px-0">
       <Head>
         <meta property="og:title" content="Badral's Blog" />
         <meta property="og:description" content="Badral Blog's description" />
