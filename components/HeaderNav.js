@@ -87,7 +87,7 @@ export function Footer() {
           </div>
           <div className="text-center md:max-w-[521px] md:w-full md:py-0 py-[30px] flex flex-col gap-2">
             {Navs.map((item) => (
-              <div key={item.link}>{item.title}</div>
+              <Link href={item.link} key={item.link}>{item.title}</Link>
             ))}
           </div>
           <div className="flex gap-[27px] md:py-0 py-[30px] justify-center">
