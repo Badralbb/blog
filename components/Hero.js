@@ -80,7 +80,7 @@ export const Hero = () => {
     FilterArticle();
   }, [tag]);
   if (!articles.length) {
-    return <div>loading</div>;
+    return <div></div>;
   }
 
   return (
@@ -114,7 +114,7 @@ export const Hero = () => {
           {articles.map((item) => (
             <div
               key={item.id}
-              className="p-4 max-w-[396px] mx-auto w-full border-[1px] border-solid border-[#E8E8EA] rounded-xl shadow-lg drop-shadow-[0_35px_35px_purple]"
+              className="p-4 max-w-[396px] mx-auto w-full hover:rotate-[-20deg] transition-[5s] border-[1px] border-solid border-[#E8E8EA] rounded-xl shadow-lg drop-shadow-[0_35px_35px_purple]"
             >
               <div className="mb-4 max-w-[360px]">
                 <Link href={item.path}>

@@ -7,7 +7,7 @@ import MySwiper from "./Swiper";
 
 export const Header = () => {
   const [article, setArticle] = useState([]);
-
+  
   useEffect(() => {
     fetch("https://dev.to/api/articles?username=lakshmananarumugam")
       .then((response) => {
@@ -17,7 +17,9 @@ export const Header = () => {
         setArticle(data);
       });
   }, []);
-
+  if(!article.length){
+    return<div></div>
+  }
   return (
     <div>
       <div className="pb-24 hidden md:block max-w-[1216px] mx-auto">
@@ -88,7 +90,7 @@ export const Header = () => {
               index < 4 && (
                 <div
                   key={item.id}
-                  className="max-w-[293px] w-full relative overflow-hidden group hover:cursor-pointer"
+                  className="max-w-[293px] w-full relative overflow-hidden group hover:cursor-pointer hover:scale-105"
                 >
                   <Image
                     className="w-full rounded-xl"

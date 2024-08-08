@@ -69,7 +69,7 @@ export function Footer() {
   useEffect(() => {
     art()
   }, [])
-  if (!value) { return <div>faf</div> }
+  if (!value) { return <div></div> }
 
   return (
     <div className="md:bg-[#E8E8EA]  py-16">
