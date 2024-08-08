@@ -39,7 +39,7 @@ function MySwiper({ article }) {
             {
                 article.map(item => (
 
-                    <SwiperSlide>
+                    <SwiperSlide key={item.id}>
                         <Image className='w-full rounded-xl' src={item.social_image} width={2000} height={200} />
                     </SwiperSlide>
                 ))
