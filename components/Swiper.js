@@ -35,7 +35,6 @@ function MySwiper({ article }) {
             modules={[
                 Navigation,Pagination, EffectFade,EffectCoverflow,Autoplay]}
         >
-
             {
                 article.map(item => (
 
