@@ -9,7 +9,7 @@ export const Header = () => {
   const [article, setArticle] = useState([]);
 
   useEffect(() => {
-    fetch("https://dev.to/api/articles?username=ben")
+    fetch("https://dev.to/api/articles?username=lakshmananarumugam")
       .then((response) => {
         return response.json();
       })
