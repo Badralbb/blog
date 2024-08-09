@@ -63,7 +63,7 @@ export default function blog() {
                             articles.map(item =>
                                 <div
                                     key={item.id}
-                                    className="p-4 max-w-[396px] mx-auto w-full border-[1px] border-solid border-[#E8E8EA] rounded-xl shadow-lg"
+                                    className="p-4 max-w-[396px] mx-auto w-full border-[1px] border-solid border-[#E8E8EA] hover:cursor-pointer hover:rotate-[-20deg] transition-[5s] drop-shadow-[0_35px_35px_purple] rounded-xl shadow-lg"
                                 >
                                     <div className="mb-4 max-w-[360px]">
                                         <Link href={item.path}>
